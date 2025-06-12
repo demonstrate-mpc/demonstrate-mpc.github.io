@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="DEMONSTRATE: Zero-shot Language to Robotic Control via Multi-task Demonstration Learning">
+  <meta name="keywords" content="Robotics, Language Models, Control, Demonstration Learning">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DEMONSTRATE</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+
+<body>
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">DEMONSTRATE</h1>
+            <h3 class="title is-4">Zero-shot Language to Robotic Control via Multi-task Demonstration Learning</h3>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">Author names omitted for anonymous review</span>
+            </div>
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <span class="link-block">
+                  <a href="#" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                    </span>
+                    <span>Paper</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a href="#" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="hero teaser">
+    <div class="container is-max-desktop">
+      <div class="hero-body">
+        <video id="teaser" autoplay muted loop playsinline height="100%">
+          <source src="./static/videos/teaser.mp4" type="video/mp4">
+        </video>
+        <h2 class="subtitle has-text-centered">
+          DEMONSTRATE maps language to control through multi-task demonstrations, enabling robots to follow commands without engineering-tuned examples.
+        </h2>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>
+              The integration of large language models (LLMs) into robotic systems holds significant promise for enabling natural language-based control. However, existing approaches often rely on handcrafted prompt examples and lack mechanisms for verifying correctness before execution. DEMONSTRATE presents a framework that removes the need for expert-tuned prompts by replacing in-context examples with demonstrations of low-level tasks. By mapping language descriptions to control objectives using task embeddings and inverse optimal control, the system can generalize to new tasks zero-shot and assess potential hallucinations preemptively. This results in a scalable and more reliable pipeline for deploying LLMs in robotics.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column">
+          <h2 class="title is-3">Model Overview</h2>
+          <img src="./static/images/architecture.svg" alt="DEMONSTRATE Architecture" style="width:100%" />
+          <div class="content has-text-justified">
+            <p>
+              DEMONSTRATE’s architecture is based on a two-stage pipeline:
+              <ol>
+                <li><strong>Language Module (LM):</strong> Translates natural language commands into embeddings using a pre-trained LLM. These embeddings abstract away syntax and focus on semantic similarity between tasks.</li>
+                <li><strong>Control Module (CM):</strong> Uses multi-task inverse reinforcement learning to associate these embeddings with cost and constraint structures derived from demonstrations. This allows zero-shot synthesis of control problems, reducing reliance on hand-crafted prompts or symbolic formulations.</li>
+              </ol>
+              The result is a system that interprets and executes unseen commands with minimal tuning, while allowing pre-execution validation of feasibility.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">BibTeX</h2>
+      <pre><code>
+@article{demonstrate2024,
+  title={DEMONSTRATE: Zero-shot Language to Robotic Control via Multi-task Demonstration Learning},
+  author={Anonymous},
+  journal={Under Review},
+  year={2024}
+}
+</code></pre>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+            Website adapted from <a href="https://nerfies.github.io">nerfies.github.io</a>.
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>
