@@ -95,15 +95,34 @@
       <div class="columns is-centered has-text-centered">
         <div class="column">
           <h2 class="title is-3">Model Overview</h2>
-          <img src="./static/images/architecture.svg" alt="DEMONSTRATE Architecture" style="width:100%" />
           <div class="content has-text-justified">
             <p>
-              DEMONSTRATE’s architecture is based on a two-stage pipeline:
+              DEMONSTRATE builds upon two modules:
               <ol>
                 <li><strong>Language Module (LM):</strong> Translates natural language commands into embeddings using a pre-trained LLM. These embeddings abstract away syntax and focus on semantic similarity between tasks.</li>
                 <li><strong>Control Module (CM):</strong> Uses multi-task inverse reinforcement learning to associate these embeddings with cost and constraint structures derived from demonstrations. This allows zero-shot synthesis of control problems, reducing reliance on hand-crafted prompts or symbolic formulations.</li>
               </ol>
               The result is a system that interprets and executes unseen commands with minimal tuning, while allowing pre-execution validation of feasibility.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column">
+          <h2 class="title is-3">Pipeline</h2>
+          <img src="./static/images/explanatory_figure.pdf" alt="DEMONSTRATE Architecture" style="width:100%" />
+          <div class="content has-text-justified">
+            <p>
+              DEMONSTRATE’s architecture is based on a two-stage pipeline:
+              <ol>
+                <li><strong>A. Offline pipeline:</strong> A user provides sub-task descriptions together with trajectory demonstrations and an LLM is employed to compute the embedding vectors for the sub-task descriptions. The demonstrations and the embedding vectors are then used to learn (i) a parametric mapping from embedding to task vector, and (ii) the shared multitask parameters, both used in the online pipeline.</li>
+                <li><strong>B. Online pipeline:</strong> Architecture of the NARRATE pipeline (), with an added Sub-task Validation Module and a modified Optimization Designer. A complex user command is initially passed to the Task Planner, dividing it into multiple sub-tasks and another LLM is used to find their embedding representations. After checking their similarity with the provided sub-task examples in the offline pipeline for sub-task validation, they are then fed into the parametric map to compute the feature vector used in the Trajectory Generator block.</li>
+              </ol>
             </p>
           </div>
         </div>
