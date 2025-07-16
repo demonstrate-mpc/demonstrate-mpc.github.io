@@ -100,7 +100,7 @@
           <source src="./static/videos/teaser.mp4" type="video/mp4">
         </video>
         <h2 class="subtitle has-text-centered">
-          DEMONSTRATE maps language to control through multi-task demonstrations, enabling robots to follow commands without engineering-tuned examples.
+          DEMONSTRATE maps language to control through multi-task demonstrations, enabling robots to follow commands without engineering-tuned examples and allows for a novel detection mechanism of hallucinations before task execution.
         </h2>
       </div>
     </div>
@@ -131,9 +131,9 @@
               DEMONSTRATE builds upon two modules:
               <ol>
                 <li><strong>Language Module (LM):</strong> Translates natural language commands into embeddings using a pre-trained LLM. These embeddings abstract away syntax and focus on semantic similarity between tasks.</li>
-                <li><strong>Control Module (CM):</strong> Uses multi-task inverse reinforcement learning to associate these embeddings with cost and constraint structures derived from demonstrations. This allows zero-shot synthesis of control problems, reducing reliance on hand-crafted prompts or symbolic formulations.</li>
+                <li><strong>Control Module (CM):</strong> Uses multi-task inverse reinforcement learning to associate these embeddings with cost structures derived from demonstrations. This learned parametric mapping form an embedding representations to task defining parameters in the cost function allows for zero-shot synthesis of control problems, reducing reliance on hand-crafted prompts or symbolic formulations, as well as a novel systematic mechanism to detect hallucinations before task execution. </li>
               </ol>
-              The result is a system that interprets and executes unseen commands with minimal tuning, while allowing pre-execution validation of feasibility.
+              The result is a system that interprets and executes unseen commands with minimal tuning, while allowing pre-execution detection of unknown commands or hallucinations.
             </p>
           </div>
         </div>
@@ -152,7 +152,7 @@
               DEMONSTRATE’s architecture is based on a two-stage pipeline:
               <ol>
                 <li><strong>A. Offline pipeline:</strong> A user provides sub-task descriptions together with trajectory demonstrations and an LLM is employed to compute the embedding vectors for the sub-task descriptions. The demonstrations and the embedding vectors are then used to learn (i) a parametric mapping from embedding to task vector, and (ii) the shared multitask parameters, both used in the online pipeline.</li>
-                <li><strong>B. Online pipeline:</strong> Architecture of the NARRATE pipeline (), with an added Sub-task Validation Module and a modified Optimization Designer. A complex user command is initially passed to the Task Planner, dividing it into multiple sub-tasks and another LLM is used to find their embedding representations. After checking their similarity with the provided sub-task examples in the offline pipeline for sub-task validation, they are then fed into the parametric map to compute the feature vector used in the Trajectory Generator block.</li>
+                <li><strong>B. Online pipeline:</strong> Architecture of the <a href="https://narrate-mpc.github.io/" target="_blank" rel="noopener noreferrer">NARRATE pipeline</a>, with an added Sub-task Validation Module and a modified Optimization Designer. A complex user command is initially passed to the Task Planner, dividing it into multiple sub-tasks and another LLM is used to find their embedding representations. After checking their similarity with the provided sub-task examples in the offline pipeline for sub-task validation, they are then fed into the parametric map to compute the feature vector used in the Trajectory Generator block.</li>
               </ol>
             </p>
           </div>
